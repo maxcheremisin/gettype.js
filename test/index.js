@@ -1,14 +1,13 @@
 const assert = require('assert');
-const gettype = require('../');
+const getType = require('../');
 
-
-describe('gettype', () => {
+describe('getType', () => {
   let car;
   
   describe('test for strings', () => {
     it ('should return `string`', () => {
-      assert('string', gettype('This is a string'));
-      assert('string', gettype(''));
+      assert('string', getType('This is a string'));
+      assert('string', getType(''));
       assert('string', new String(2019));
       assert('string', String(2019));
     });
@@ -16,63 +15,71 @@ describe('gettype', () => {
 
   describe('get type of number', () => {
     it ('should return `number`', () => {
-      assert('number', gettype(1));
-      assert('number', gettype(0));
-      assert('number', gettype(new Number('2019')));
-      assert('number', gettype(Number('2019')));
+      assert('number', getType(1));
+      assert('number', getType(0));
+      assert('number', getType(new Number('2019')));
+      assert('number', getType(Number('2019')));
+    });
+  });
+
+  describe('get type of NaN', () => {
+    it ('should return `NaN`', () => {
+      assert('NaN', getType(NaN));
+      assert('NaN', getType('n'-1));
+      assert('NaN', getType(1+'n'));
     });
   });
 
   describe('test for arrays', () => {
     it ('should test `array`', () => {
-      assert('array', gettype([]));
-      assert('array', gettype([2, 3]));
-      assert('array', gettype(new Array(2)));
-      assert('array', gettype(Array(2)));
+      assert('array', getType([]));
+      assert('array', getType([2, 3]));
+      assert('array', getType(new Array(2)));
+      assert('array', getType(Array(2)));
     });
   });
 
   describe('test for objects', () => {
     it ('should test `object`', () => {
-      assert('array', gettype({a: 1, b: 2}));
-      assert('array', gettype(Object.defineProperties({}, {})));
-      assert('array', gettype(new Object({})));
-      assert('array', gettype(Object({})));
+      assert('array', getType({a: 1, b: 2}));
+      assert('array', getType(Object.defineProperties({}, {})));
+      assert('array', getType(new Object({})));
+      assert('array', getType(Object({})));
     });
   });
 
   describe('test for functions', () => {
     it ('should return `function`', () => {
-      assert('function', gettype(function() {}));
-      assert('function', gettype(() => {}));
-      assert('function', gettype(new Function('x', 'y', 'x' * 'y')));
+      assert('function', getType(function() {}));
+      assert('function', getType(() => {}));
+      assert('function', getType(new Function('x', 'y', 'x' * 'y')));
     });
   });
 
   describe('test for sets', () => {
     it('should return `set`', () => {
-      assert('set', gettype(new Set([1, 2, 3])));
+      assert('set', getType(new Set([1, 2, 3])));
     });
   })
 
   describe('test for boolean', () => {
     it('should return 1boolean`', () => {
-      assert('boolean', gettype(true));
-      assert('boolean', gettype(false));
+      assert('boolean', getType(true));
+      assert('boolean', getType(false));
     });
   })
 
   describe('test for null', () => {
     it('should return `null`', () => {
-      assert('null', gettype(null));
+      assert('null', getType(null));
     });
   });
 
   describe('test for undefined', () => {
     it('should return `undefined`', () => {
-      assert('undefined', gettype());
-      assert('undefined', gettype(undefined));
-      assert('undefined', gettype(car));
+      assert('undefined', getType());
+      assert('undefined', getType(undefined));
+      assert('undefined', getType(car));
     });
   });
 });
