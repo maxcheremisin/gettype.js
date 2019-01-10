@@ -7,45 +7,63 @@
 ## Install
 
 ```sh
-$ npm i gettype.js
+$ npm i getType.js
 ```
 
 ## Usage
 
 ```js
-const gettype = require('gettype.js');
+const getType = require('gettype.js');
 
-gettype('I am a string');
-gettype(new String(2019));
-// => string
+getType('I am a string');
+getType(new String(2019));
+// => String
 
-gettype(2019);
-// => number
+getType(2019);
+// => Number
 
-gettype([1, 2, 3, 4, 5]);
-// => array
+getType([1, 2, 3, 4, 5]);
+// => Array
 
-gettype({ a: 1, b: 2 });
-// => object
+getType({ a: 1, b: 2 });
+// => Object
 
-gettype(new Set([2, 4, 6]));
-// => set
+getType(new Set([2, 4, 6]));
+// => Set
 
-gettype(function() {});
-// => function
+getType(function() {});
+// => Function
 
-gettype(true);
-// => boolean
+getType(true);
+// => Boolean
 
-gettype(null);
-// => null
+getType(null);
+// => Null
 
-gettype();
-gettype(undefined);
-// => undefined
+getType();
+getType(undefined);
+// => Undefined
+
+getType(NaN);
+getType('n' * 2);
+// => NaN
+
+getType(/regExp/);
+// => RegExp
+
+getType(new TypeError());
+// => TypeError
+
+getType(new Date());
+getType(new Date(2000, 3, 5));
+// => Date
+
+class TestClass {}
+
+getType(new TestClass());
+// => TestClass
 
 ```  
-
 
 ## License
 MIT © [Uche Jude](https://iamuchejude.com)
