@@ -1,0 +1,36 @@
+{
+  "name": "gettype.js",
+  "version": "1.0.0",
+  "description": "Better alternative for 'typeof' in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamuchejude/gettype.js.git"
+  },
+  "keywords": [
+    "typeof",
+    "gettype",
+    "type",
+    "string",
+    "number",
+    "array",
+    "function",
+    "object",
+    "set",
+    "boolean",
+    "null",
+    "undefined"
+  ],
+  "author": "Uche Jude <iamuchejude@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamuchejude/gettype.js/issues"
+  },
+  "homepage": "https://github.com/iamuchejude/gettype.js#readme",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
