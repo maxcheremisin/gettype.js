@@ -1,4 +1,7 @@
-# gettype.js
+# gettype.js  
+
+[![Build Status](https://travis-ci.org/iamuchejude/gettype.js.svg?branch=master)](https://travis-ci.org/iamuchejude/gettype.js)  
+
 > Better alternative for 'typeof' in JavaScript
 
 ## Install
